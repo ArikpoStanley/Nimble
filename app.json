@@ -1,14 +1,15 @@
 {
   "expo": {
-    "name": "notJust Crypto Tracker",
-    "slug": "notJustCryptoTracker",
+    "name": "Nimble",
+    "slug": "nimble",
     "version": "1.0.3",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Nimble.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Nimble.png",
       "resizeMode": "contain",
-      "backgroundColor": "#29303A"
+      "backgroundColor": "#000000",
+      "height": "500"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -25,12 +26,12 @@
       "package": "com.notJust.cryptotracker",
       "versionCode": 5,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#29303A"
+        "foregroundImage": "./assets/Nimble.png",
+        "backgroundColor": "#000000"
       }
     },
     "web": {
-      "favicon": "./assets/icon.png"
+      "favicon": "./assets/Nimble.png"
     }
   }
 }

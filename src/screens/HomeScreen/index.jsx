@@ -33,9 +33,17 @@ const HomeScreen = () => {
 
   return (
     <View>
+      <View style={{backgroundColor: "#252535", borderBottomLeftRadius: 15, borderBottomRightRadius: 15, height: 150, padding: 10}}>
+        <Text style={{color: "white", color:"gray"}}>Your Wallet</Text>
+        <View style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
+        <Text style={{color: "gray", padding:5, fontWeight: "bold", }}>$</Text>
+        <Text style={{color: "white", padding:5, fontSize:30, fontWeight: "bold", }}>473,982,320</Text>
+        <Text style={{color: "gray", fontWeight: "bold", }}>USD</Text>
+        </View>
+      </View>
       <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
         <Text style={{ fontFamily: 'DroidSans', color: "white", fontSize: 25, letterSpacing: 1, paddingHorizontal: 20, paddingBottom: 5 }}>Cryptoassets</Text>
-        <Text style={{color: 'lightgrey', fontSize: 12, paddingHorizontal: 10}}>Powered by CoinGecko</Text>
+        <Text style={{color: 'lightgrey', fontSize: 12, paddingHorizontal: 10,}}>Powered by Nimble</Text>
       </View>
       <FlatList
         data={coins}

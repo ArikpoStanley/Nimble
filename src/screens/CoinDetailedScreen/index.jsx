@@ -18,6 +18,7 @@ import {
 } from "../../services/requests";
 import FilterComponent from "./components/FilterComponent";
 import { MaterialIcons } from "@expo/vector-icons";
+import { Log } from "ethers";
 
 const filterDaysArray = [
   { filterDay: "1", filterText: "24h" },
@@ -46,7 +47,9 @@ const CoinDetailedScreen = () => {
     setLoading(true);
     const fetchedCoinData = await getDetailedCoinData(coinId);
     setCoin(fetchedCoinData);
-    setUsdValue(fetchedCoinData.market_data.current_price.usd.toString());
+    setUsdValue(fetchedCoinData?.market_data?.current_price?.usd.toString());
+    console.log(usdValue);
+    
     setLoading(false);
   };
 
@@ -55,6 +58,8 @@ const CoinDetailedScreen = () => {
       coinId,
       selectedRangeValue
     );
+    console.log(fetchedCoinMarketData);
+    
     setCoinMarketData(fetchedCoinMarketData);
   };
 
@@ -63,6 +68,8 @@ const CoinDetailedScreen = () => {
       coinId,
       selectedRangeValue
     );
+    console.log(fetchedSelectedCandleChartData);
+    
     setCoinCandleChartData(fetchedSelectedCandleChartData);
   };
 
@@ -83,6 +90,7 @@ const CoinDetailedScreen = () => {
     (range) => onSelectedRangeChange(range),
     []
   );
+  
 
   if (loading || !coin || !coinMarketData || !coinCandleChartData) {
     return <ActivityIndicator size="large" />;
@@ -104,7 +112,10 @@ const CoinDetailedScreen = () => {
 
   const percentageColor =
     price_change_percentage_24h < 0 ? "#ea3943" : "#16c784" || "white";
-  const chartColor = current_price.usd > prices[0][1] ? "#16c784" : "#ea3943";
+    if(current_price){
+      return current_price
+    }
+  const chartColor = current_price?.usd > prices[0][1] ? "#16c784" : "#ea3943";
   const screenWidth = Dimensions.get("window").width;
 
   const formatCurrency = ({ value }) => {
