@@ -29,9 +29,9 @@ const filterDaysArray = [
 ];
 
 const CoinDetailedScreen = () => {
-  const [coin, setCoin] = useState(null);
-  const [coinMarketData, setCoinMarketData] = useState(null);
-  const [coinCandleChartData, setCoinCandleChartData] = useState(null);
+  const [coin, setCoin] = useState({});
+  const [coinMarketData, setCoinMarketData] = useState({});
+  const [coinCandleChartData, setCoinCandleChartData] = useState({});
   const route = useRoute();
   const {
     params: { coinId },
@@ -48,9 +48,9 @@ const CoinDetailedScreen = () => {
     const fetchedCoinData = await getDetailedCoinData(coinId);
     setCoin(fetchedCoinData);
     setUsdValue(fetchedCoinData?.market_data?.current_price?.usd.toString());
-    console.log(usdValue);
+    // console.log(usdValue);
     
-    setLoading(false);
+    setLoading(!loading);
   };
 
   const fetchMarketCoinData = async (selectedRangeValue) => {
@@ -58,7 +58,6 @@ const CoinDetailedScreen = () => {
       coinId,
       selectedRangeValue
     );
-    console.log(fetchedCoinMarketData);
     
     setCoinMarketData(fetchedCoinMarketData);
   };
@@ -68,7 +67,6 @@ const CoinDetailedScreen = () => {
       coinId,
       selectedRangeValue
     );
-    console.log(fetchedSelectedCandleChartData);
     
     setCoinCandleChartData(fetchedSelectedCandleChartData);
   };
@@ -92,13 +90,13 @@ const CoinDetailedScreen = () => {
   );
   
 
-  if (loading || !coin || !coinMarketData || !coinCandleChartData) {
+  if (!loading || !coin || !coinMarketData || !coinCandleChartData) {
     return <ActivityIndicator size="large" />;
   }
 
   const {
     id,
-    image: { small },
+    image: small1,
     name,
     symbol,
     market_data: {
@@ -106,7 +104,10 @@ const CoinDetailedScreen = () => {
       current_price,
       price_change_percentage_24h,
     },
-  } = coin;
+  } = coin || {};
+
+  console.warn(market_cap_rank);
+  
 
   const { prices } = coinMarketData;
 

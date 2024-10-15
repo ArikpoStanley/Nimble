@@ -6,6 +6,7 @@ import PortfolioScreen from "../screens/PortfolioScreen";
 import { Image } from "react-native";
 import { Entypo, FontAwesome, Foundation } from "@expo/vector-icons";
 import Market from "../screens/MarketScreen/Market";
+import Profile from "../screens/Profile/Profile";
 import trade from "../../assets/trade.png"
 import home from "../../assets/home.png"
 import profile from "../../assets/profile.png"
@@ -88,7 +89,7 @@ const BottomTabNavigator = () => {
       />
         <Tab.Screen
         name="Profile"
-        component={Market}
+        component={Profile}
         options={{
           tabBarIcon: ({ focused, color }) => (
             <Image 
