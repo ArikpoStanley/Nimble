@@ -5,7 +5,7 @@ import { getMarketData } from "../../services/requests";
 import Feather from '@expo/vector-icons/Feather';
 import withdraw from '../../../assets/withdraw.png'
 import send from '../../../assets/send.png'
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -51,12 +51,12 @@ const HomeScreen = () => {
         <Text style={{color: "gray", fontWeight: "bold", fontSize: 18}}>7d Change</Text>
         </View>
         <View style={{marginTop: 20,  display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
-          <TouchableOpacity style={{display: "flex", flexDirection: "row", gap: 5, alignItems: "center",  backgroundColor: "#fff", borderRadius: 20, paddingVertical: 8, paddingHorizontal: 30}}>
+          <TouchableOpacity onPress={()=> navigation.navigate("Wallet")} style={{display: "flex", flexDirection: "row", gap: 5, alignItems: "center",  backgroundColor: "#fff", borderRadius: 20, paddingVertical: 8, paddingHorizontal: 30}}>
             <Image source={send} style={{width: 20, height: 20, }} />
             <Text style={{color: "black", fontSize: 25, fontWeight: "bold"}}>Transfer</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={{display: "flex", flexDirection: "row", gap: 5, alignItems: "center",  backgroundColor: "#fff", borderRadius: 20, paddingVertical: 8, paddingHorizontal: 30}}>
+          <TouchableOpacity onPress={()=> navigation.navigate("Wallet")} style={{display: "flex", flexDirection: "row", gap: 5, alignItems: "center",  backgroundColor: "#fff", borderRadius: 20, paddingVertical: 8, paddingHorizontal: 30}}>
             <Image source={withdraw} style={{width: 20, height: 20, }} />
             <Text style={{color: "black", fontSize: 25, fontWeight: "bold"}}>Withdraw</Text>
           </TouchableOpacity>

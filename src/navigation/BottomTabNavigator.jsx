@@ -57,7 +57,7 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Market"
+        name="Wallet"
         component={Market}
         options={{
           tabBarIcon: ({ focused, color }) => (

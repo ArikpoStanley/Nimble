@@ -43,12 +43,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10
   },
   buttonContainer: {
-    backgroundColor: '#4169E1',
+    backgroundColor: '#252535',
     padding: 10,
     alignItems: 'center',
     marginVertical: 25,
     marginHorizontal: 10,
-    borderRadius: 5 
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: "white" 
   },
   buttonText: {
     color: 'white',
