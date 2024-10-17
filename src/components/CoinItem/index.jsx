@@ -40,7 +40,7 @@ const CoinItem = ({ marketCoin }) => {
   return (
     <Pressable
       style={styles.coinContainer}
-      onPress={() => navigation.navigate("CoinDetailedScreen", {coinId: id})}
+      onPress={() => navigation.navigate("CoinDetailedScreen", {coin: marketCoin})}
     >
       <Image
         source={{ uri: image }}

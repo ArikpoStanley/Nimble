@@ -6,6 +6,7 @@ import Navigation from "./src/navigation";
 import WatchlistProvider from "./src/Contexts/WatchlistContext";
 import { RecoilRoot } from 'recoil'
 import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -18,6 +19,7 @@ export default function App() {
   }
 
   return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
     <NavigationContainer
       theme={{
         colors: {
@@ -34,6 +36,7 @@ export default function App() {
       </WatchlistProvider>
       </RecoilRoot>
     </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
 

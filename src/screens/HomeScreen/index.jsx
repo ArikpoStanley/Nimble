@@ -15,10 +15,7 @@ const HomeScreen = ({navigation}) => {
     }
     setLoading(true);
     const coinsData = await getMarketData(pageNumber);
-    setCoins((existingCoins) => {
-      // If existingCoins is undefined or null, use an empty array
-      return [...(existingCoins || []), ...coinsData];
-    });
+    setCoins((existingCoins) => [...existingCoins, ...coinsData]);
     setLoading(false);
   };
 
